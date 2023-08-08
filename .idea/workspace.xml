@@ -30,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/Programming/java/springboot/demo",
+    "last_opened_file_path": "E:/Programming/java/springboot/state-machine",
     "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>
@@ -47,6 +47,9 @@
       </method>
     </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="options" />
+      <option name="profiles" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
