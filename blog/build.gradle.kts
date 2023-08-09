@@ -1,13 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+	val KOTLIN_VERSION = "1.9.0"
 	id("org.springframework.boot") version "3.1.2"
 	id("io.spring.dependency-management") version "1.1.2"
-	kotlin("jvm") version "1.8.22"
-	kotlin("plugin.spring") version "1.8.22"
-	kotlin("plugin.jpa") version "1.8.22"
-	kotlin("plugin.allopen") version "1.8.0"
-	kotlin("kapt") version "1.8.0"
+	kotlin("jvm") version KOTLIN_VERSION
+	kotlin("plugin.spring") version KOTLIN_VERSION
+	kotlin("plugin.jpa") version KOTLIN_VERSION
+	kotlin("plugin.allopen") version KOTLIN_VERSION
+	kotlin("kapt") version KOTLIN_VERSION
 }
 
 group = "com.example"
@@ -47,7 +48,7 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
-		freeCompilerArgs += "-Xjsr305=strict"
+		// freeCompilerArgs += "-Xjsr305=strict"
 		jvmTarget = "17"
 	}
 }
