@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
 import org.springframework.data.repository.findByIdOrNull
 
 @DataJpaTest
-class RepositoriesTests @AutoWired constructor(
+class RepositoriesTests @Autowired constructor(
 	val entityManager: TestEntityManager,
 	val userRepository: UserRepository,
 	val articleRepository: ArticleRepository) {
