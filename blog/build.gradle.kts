@@ -10,12 +10,6 @@ plugins {
 	kotlin("kapt") version "1.8.0"
 }
 
-allOpen {
-	annotation("jakarta.persistence.Entity")
-	annotation("jakarta.persistence.Embeddable")
-	annotation("jakarta.persistence.MappedSuperclass")
-}
-
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
@@ -33,10 +27,21 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
 	runtimeOnly("com.h2database:h2")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	kapt("org.springframewokr.boot:spring-boot-configuration-processor")
+	runtimeOnly("org.springframework.boot:spring-boot-devtools")
+	
+	kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(module = "mockito-core")
+	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api")
+	testImplementation("com.ninja-squad:springmock:4.0.0")
+
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
 tasks.withType<KotlinCompile> {
@@ -46,13 +51,12 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+allOpen {
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.Embeddable")
+	annotation("jakarta.persistence.MappedSuperclass")
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
-
-testImplementation("org.springframework.boot:spring-boot-starter-test") {
-	exclude(module = "mockito-core")
-}
-testImplementation("org.junit.jupiter:junit-jupiter-api")
-testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-testImplementation("com.ninja-squad:springmock:4.0.0")
