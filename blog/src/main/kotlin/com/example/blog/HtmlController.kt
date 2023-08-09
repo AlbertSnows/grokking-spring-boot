@@ -18,7 +18,8 @@ class HtmlController(
   fun blog(model: Model): String {
     model["title"] = "Blog"
     model["banner"] = properties.banner
-    model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }    return "blog"
+    model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
+		return "blog"
   }
 
 	@GetMapping("/article/{slug}")
